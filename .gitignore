@@ -1,0 +1,13 @@
+# Kotlin
+*.gradle/
+build/
+gradlew.bat
+
+# Log file
+*.log
+
+# Package Files
+*.hprof
+
+# IDE
+.idea/
