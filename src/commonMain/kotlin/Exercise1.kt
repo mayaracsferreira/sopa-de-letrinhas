@@ -1,12 +1,17 @@
 import kotlin.random.Random
-/**
- *
- */
-class Exercise1 {
-    var random = Random
-    var userAge = 9
 
-    fun IsUserAge( ageSelected : Int): Boolean {
+interface Exercise1Interface{
+    fun isUserAge( ageSelected : Int): Boolean
+}
+
+class Exercise1(var userAge: Int) : Exercise1Interface {
+    var random = Random
+
+    init {
+        if (userAge < 0 ) throw IllegalArgumentException()
+    }
+
+    override fun isUserAge(ageSelected : Int): Boolean {
         return ageSelected == userAge
     }
 
