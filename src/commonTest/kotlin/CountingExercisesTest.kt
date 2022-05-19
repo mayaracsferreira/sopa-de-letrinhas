@@ -73,4 +73,19 @@ internal class CountingExercisesTest {
             sut.completeTheList(numbers, missingNumbers)
         }
     }
+
+    @Test
+    fun isMaxListElement(){
+        // Arrange
+        val sut = CountingExercises()
+        val numbers = (1..10).toList()
+        val valueSelected = 10
+        val expected = 10
+
+        // Act
+        val result = sut.isMaxListElement(numbers, valueSelected)
+
+        // Assert
+        assertTrue(result)
+    }
 }

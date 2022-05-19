@@ -32,9 +32,9 @@ class CountingExercises : CountingExercisesInterface {
         return mergedList
     }
 
-    // TODO Implement tests
     override fun isMaxListElement(numericList: List<Int>, elementSelected: Int) : Boolean{
-        TODO("Not yet implemented")
+        val maxElement = numericList.maxOf { it }
+        return elementSelected == maxElement
     }
 
     // TODO Implement tests
