@@ -11,7 +11,7 @@ internal class CountingExercisesTest {
         val valueSelected = 9
 
         // Act
-        var result = sut.selectUserAgeFromList(numbers, valueSelected, userAge)
+        var result = sut.isElementSelectedUserAge(numbers, valueSelected, userAge)
 
         // Assert
         assertTrue(result)
@@ -26,7 +26,7 @@ internal class CountingExercisesTest {
         val valueSelected = 7
 
         // Act
-        var result = sut.selectUserAgeFromList(numbers, valueSelected, userAge)
+        var result = sut.isElementSelectedUserAge(numbers, valueSelected, userAge)
 
         // Assert
         assertFalse(result)
@@ -42,7 +42,7 @@ internal class CountingExercisesTest {
 
         // Assert
         assertFailsWith<IllegalArgumentException> {
-            sut.selectUserAgeFromList(numbers, valueSelected, userAge)
+            sut.isElementSelectedUserAge(numbers, valueSelected, userAge)
         }
     }
 

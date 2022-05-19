@@ -1,12 +1,18 @@
 interface CountingExercisesInterface {
-    fun selectUserAgeFromList(numericSet: Set<Int>, ageSelected: Int, userAge: Int): Boolean
+    fun isElementSelectedUserAge(numericSet: Set<Int>, ageSelected: Int, userAge: Int): Boolean
 
     fun completeTheList(numericList: MutableList<Int?>, missingValues: List<Int>): MutableList<Int>
+
+    fun isMaxListElement(numericList: List<Int>, elementSelected: Int): Boolean
+
+    fun startsWithDistinctNumber(numericList: List<Int>, elementsSelected: List<Int>): List<Int>
+
+    fun distinctDigitsList(numericList: List<Int>, elementsSelected: List<Int>): List<Int>
 }
 
 class CountingExercises : CountingExercisesInterface {
 
-    override fun selectUserAgeFromList(numericSet: Set<Int>, ageSelected: Int, userAge: Int): Boolean {
+    override fun isElementSelectedUserAge(numericSet: Set<Int>, ageSelected: Int, userAge: Int): Boolean {
         if (!numericSet.contains(userAge)) throw IllegalArgumentException("Collection must contain user age")
         return ageSelected == userAge
     }
@@ -25,4 +31,23 @@ class CountingExercises : CountingExercisesInterface {
             } as MutableList<Int>
         return mergedList
     }
+
+    // TODO Implement tests
+    override fun isMaxListElement(numericList: List<Int>, elementSelected: Int) : Boolean{
+        TODO("Not yet implemented")
+    }
+
+    // TODO Implement tests
+    override fun startsWithDistinctNumber(numericList: List<Int>, elementsSelected: List<Int>): List<Int> {
+        TODO("Not yet implemented")
+    }
+
+    // TODO Implement tests
+    override fun distinctDigitsList(numericList: List<Int>, elementsSelected: List<Int>): List<Int> {
+        TODO("Not yet implemented")
+    }
+
+    // TODO Exercicios calçados/numero da casa
+
+
 }
