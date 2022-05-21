@@ -7,7 +7,13 @@ interface CountingExercisesInterface {
 
     fun startsWithDistinctNumber(numericList: List<Int>, elementsSelected: List<Int>): Boolean
 
-    fun distinctDigitsList(numericList: List<Int>, elementsSelected: List<Int>): List<Int>
+    fun getDistinctDigitsList(numericList: List<Int>, elementsSelected: List<Int>): List<Int>
+
+    fun hasKeyMinMapValue(keyValues: Map<String, Int>, keySelected: String): Boolean
+
+    fun hasKeyMaxMapValue(keyValues: Map<String, Int>, keySelected: String): Boolean
+
+    fun isNumbersSortedAsc(numbers: List<Int>): Boolean
 }
 
 class CountingExercises : CountingExercisesInterface {
@@ -46,13 +52,23 @@ class CountingExercises : CountingExercisesInterface {
         return uniqueValues.equals(elementsSelected)
     }
 
-    override fun distinctDigitsList(numericList: List<Int>, elementsSelected: List<Int>): List<Int> {
+    override fun getDistinctDigitsList(numericList: List<Int>, elementsSelected: List<Int>): List<Int> {
         return numericList.filter { element ->
             hasNumberUniqueDigits(element)
         }
     }
 
-    // TODO Exercicios calçados/numero da casa
+    override fun hasKeyMinMapValue(keyValues: Map<String, Int>, keySelected: String): Boolean {
+        return keyValues.values.minOf { it } == keyValues.getValue(keySelected)
+    }
+
+    override fun hasKeyMaxMapValue(keyValues: Map<String, Int>, keySelected: String): Boolean {
+        return keyValues.values.maxOf { it } == keyValues.getValue(keySelected)
+    }
+
+    override fun isNumbersSortedAsc(numbers: List<Int>): Boolean {
+        return numbers.sorted() == numbers
+    }
 
     private fun getFirstDigitOfInteger(number: Int): Int {
         return number.toString().first().digitToInt()

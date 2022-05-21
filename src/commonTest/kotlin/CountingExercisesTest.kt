@@ -11,7 +11,7 @@ internal class CountingExercisesTest {
         val valueSelected = 9
 
         // Act
-        var result = sut.isElementSelectedUserAge(numbers, valueSelected, userAge)
+        val result = sut.isElementSelectedUserAge(numbers, valueSelected, userAge)
 
         // Assert
         assertTrue(result)
@@ -26,7 +26,7 @@ internal class CountingExercisesTest {
         val valueSelected = 7
 
         // Act
-        var result = sut.isElementSelectedUserAge(numbers, valueSelected, userAge)
+        val result = sut.isElementSelectedUserAge(numbers, valueSelected, userAge)
 
         // Assert
         assertFalse(result)
@@ -55,7 +55,7 @@ internal class CountingExercisesTest {
         val expected = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).toMutableList()
 
         // Act
-        var result = sut.completeTheList(numbers, missingNumbers)
+        val result = sut.completeTheList(numbers, missingNumbers)
 
         // Assert
         assertContentEquals(expected, result)
@@ -80,7 +80,6 @@ internal class CountingExercisesTest {
         val sut = CountingExercises()
         val numbers = (1..10).toList()
         val valueSelected = 10
-        val expected = 10
 
         // Act
         val result = sut.isMaxListElement(numbers, valueSelected)
@@ -118,9 +117,74 @@ internal class CountingExercisesTest {
         val expected = listOf(element3)
 
         // Act
-        val result = sut.distinctDigitsList(numbers, selected)
+        val result = sut.getDistinctDigitsList(numbers, selected)
 
         // Assert
         assertContentEquals(expected, selected)
+    }
+
+    @Test
+    fun hasKeyMinMapValue(){
+        // Arrange
+        val sut = CountingExercises()
+        val keyValues = mapOf("Estela" to 36, "Marcelo" to 38, "Nina" to 28)
+
+        // Act
+        val result = sut.hasKeyMinMapValue(keyValues, "Nina")
+
+        // Assert
+        assertTrue(result)
+    }
+
+    @Test
+    fun hasKeyMinMapValueFalse(){
+        // Arrange
+        val sut = CountingExercises()
+        val keyValues = mapOf("Estela" to 36, "Marcelo" to 38, "Nina" to 28)
+
+        // Act
+        val result = sut.hasKeyMinMapValue(keyValues, "Estela")
+
+        // Assert
+        assertFalse(result)
+    }
+
+    @Test
+    fun hasKeyMaxMapValue(){
+        // Arrange
+        val sut = CountingExercises()
+        val keyValues = mapOf("Estela" to 36, "Marcelo" to 38, "Nina" to 28)
+
+        // Act
+        val result = sut.hasKeyMaxMapValue(keyValues, "Marcelo")
+
+        // Assert
+        assertTrue(result)
+    }
+
+    @Test
+    fun hasKeyMaxMapValueFalse(){
+        // Arrange
+        val sut = CountingExercises()
+        val keyValues = mapOf("Estela" to 36, "Marcelo" to 38, "Nina" to 28)
+
+        // Act
+        val result = sut.hasKeyMaxMapValue(keyValues, "Nina")
+
+        // Assert
+        assertFalse(result)
+    }
+
+    @Test
+    fun isNumbersSortedAsc(){
+        // Arrange
+        val sut = CountingExercises()
+        val numbers = (1..10).toList()
+
+        // Act
+        val result = sut.isNumbersSortedAsc(numbers)
+
+        // Assert
+        assertTrue(result)
     }
 }
