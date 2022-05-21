@@ -1,8 +1,10 @@
 
+import java.time.LocalDateTime
 import kotlin.test.BeforeTest
 import kotlin.test.Test
+import kotlin.test.assertTrue
 
-internal class CalendarExercisesTest{
+internal class Calendar2ExercisesTest{
     private lateinit var sut: CalendarExercises
 
     @BeforeTest
@@ -13,11 +15,13 @@ internal class CalendarExercisesTest{
     @Test
     fun isCurrentDay() {
         // Arrange
-        //val current = LocalDateTime.now()
+        val current = LocalDateTime.now().dayOfMonth
 
         // Act
-        //sut.isCurrentDay(current)
+        var result = sut.isCurrentDayOfMonth(current)
+
         // Assert
+        assertTrue(result)
     }
 
     @Test
