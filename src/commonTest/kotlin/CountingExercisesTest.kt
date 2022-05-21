@@ -1,11 +1,16 @@
 import kotlin.test.*
 
 internal class CountingExercisesTest {
+    private lateinit var sut: CountingExercises
+
+    @BeforeTest
+    fun initialize() {
+        sut = CountingExercises()
+    }
 
     @Test
     fun selectUserAgeFromList() {
         // Arrange
-        val sut = CountingExercises()
         val numbers = (1..10).toSet()
         val userAge = 9
         val valueSelected = 9
@@ -20,7 +25,6 @@ internal class CountingExercisesTest {
     @Test
     fun selectUserAgeFromListWrongValue() {
         // Arrange
-        val sut = CountingExercises()
         val numbers = (1..10).toSet()
         val userAge = 9
         val valueSelected = 7
@@ -35,7 +39,6 @@ internal class CountingExercisesTest {
     @Test
     fun selectUserAgeFromListThrowsWhenSetNotContainsUserAge() {
         // Arrange
-        val sut = CountingExercises()
         val numbers = (1..10).toSet()
         val userAge = 11
         val valueSelected = 9
@@ -49,7 +52,6 @@ internal class CountingExercisesTest {
     @Test
     fun completeTheList() {
         // Arrange
-        val sut = CountingExercises()
         val numbers = listOf(1, 2, null, 4, 5, null, null, 8, 9, 10).toMutableList()
         val missingNumbers = listOf(3, 6, 7)
         val expected = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).toMutableList()
@@ -64,7 +66,6 @@ internal class CountingExercisesTest {
     @Test
     fun completeTheListThrowsOnMismatchedInputsSize() {
         // Arrange
-        val sut = CountingExercises()
         val numbers = listOf(1, 2, null, 4, 5, null, null, 8, 9, 10).toMutableList()
         val missingNumbers = listOf(3, 6)
 
@@ -77,7 +78,6 @@ internal class CountingExercisesTest {
     @Test
     fun isMaxListElement() {
         // Arrange
-        val sut = CountingExercises()
         val numbers = (1..10).toList()
         val valueSelected = 10
 
@@ -91,7 +91,6 @@ internal class CountingExercisesTest {
     @Test
     fun startsWithDistinctNumber() {
         // Arrange
-        val sut = CountingExercises()
         val element1 = 123
         val element2 = 231
         val element3 = 132
@@ -108,7 +107,6 @@ internal class CountingExercisesTest {
     @Test
     fun distinctDigitsList() {
         // Arrange
-        val sut = CountingExercises()
         val element1 = 122
         val element2 = 233
         val element3 = 132
@@ -124,9 +122,8 @@ internal class CountingExercisesTest {
     }
 
     @Test
-    fun hasKeyMinMapValue(){
+    fun hasKeyMinMapValue() {
         // Arrange
-        val sut = CountingExercises()
         val keyValues = mapOf("Estela" to 36, "Marcelo" to 38, "Nina" to 28)
 
         // Act
@@ -137,9 +134,8 @@ internal class CountingExercisesTest {
     }
 
     @Test
-    fun hasKeyMinMapValueFalse(){
+    fun hasKeyMinMapValueFalse() {
         // Arrange
-        val sut = CountingExercises()
         val keyValues = mapOf("Estela" to 36, "Marcelo" to 38, "Nina" to 28)
 
         // Act
@@ -150,9 +146,8 @@ internal class CountingExercisesTest {
     }
 
     @Test
-    fun hasKeyMaxMapValue(){
+    fun hasKeyMaxMapValue() {
         // Arrange
-        val sut = CountingExercises()
         val keyValues = mapOf("Estela" to 36, "Marcelo" to 38, "Nina" to 28)
 
         // Act
@@ -163,9 +158,8 @@ internal class CountingExercisesTest {
     }
 
     @Test
-    fun hasKeyMaxMapValueFalse(){
+    fun hasKeyMaxMapValueFalse() {
         // Arrange
-        val sut = CountingExercises()
         val keyValues = mapOf("Estela" to 36, "Marcelo" to 38, "Nina" to 28)
 
         // Act
@@ -176,9 +170,8 @@ internal class CountingExercisesTest {
     }
 
     @Test
-    fun isNumbersSortedAsc(){
+    fun isNumbersSortedAsc() {
         // Arrange
-        val sut = CountingExercises()
         val numbers = (1..10).toList()
 
         // Act
