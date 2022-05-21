@@ -5,7 +5,7 @@ interface CountingExercisesInterface {
 
     fun isMaxListElement(numericList: List<Int>, elementSelected: Int): Boolean
 
-    fun startsWithDistinctNumber(numericList: List<Int>, elementsSelected: List<Int>): List<Int>
+    fun startsWithDistinctNumber(numericList: List<Int>, elementsSelected: List<Int>): Boolean
 
     fun distinctDigitsList(numericList: List<Int>, elementsSelected: List<Int>): List<Int>
 }
@@ -32,22 +32,38 @@ class CountingExercises : CountingExercisesInterface {
         return mergedList
     }
 
-    override fun isMaxListElement(numericList: List<Int>, elementSelected: Int) : Boolean{
+    override fun isMaxListElement(numericList: List<Int>, elementSelected: Int): Boolean {
         val maxElement = numericList.maxOf { it }
         return elementSelected == maxElement
     }
 
-    // TODO Implement tests
-    override fun startsWithDistinctNumber(numericList: List<Int>, elementsSelected: List<Int>): List<Int> {
-        TODO("Not yet implemented")
+    override fun startsWithDistinctNumber(numericList: List<Int>, elementsSelected: List<Int>): Boolean {
+        var digitsList = numericList.map { element -> getFirstDigitOfInteger(element) }
+        var uniqueFirstDigits = getUniqueValues(digitsList)
+        var uniqueValues = numericList.filter { element ->
+            uniqueFirstDigits.contains(getFirstDigitOfInteger(element))
+        }
+        return uniqueValues.equals(elementsSelected)
     }
 
-    // TODO Implement tests
     override fun distinctDigitsList(numericList: List<Int>, elementsSelected: List<Int>): List<Int> {
-        TODO("Not yet implemented")
+        return numericList.filter { element ->
+            hasNumberUniqueDigits(element)
+        }
     }
 
     // TODO Exercicios calçados/numero da casa
 
+    private fun getFirstDigitOfInteger(number: Int): Int {
+        return number.toString().first().digitToInt()
+    }
 
+    private fun getUniqueValues(numbers: List<Int>): Set<Int> {
+        return numbers.groupingBy { it }.eachCount().filter { it.value == 1 }.keys
+    }
+
+    private fun hasNumberUniqueDigits(number: Int): Boolean {
+        val distinctDigits = number.toString().split("").toSet()
+        return distinctDigits.size == number.toString().count()
+    }
 }

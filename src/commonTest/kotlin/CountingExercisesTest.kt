@@ -75,7 +75,7 @@ internal class CountingExercisesTest {
     }
 
     @Test
-    fun isMaxListElement(){
+    fun isMaxListElement() {
         // Arrange
         val sut = CountingExercises()
         val numbers = (1..10).toList()
@@ -87,5 +87,40 @@ internal class CountingExercisesTest {
 
         // Assert
         assertTrue(result)
+    }
+
+    @Test
+    fun startsWithDistinctNumber() {
+        // Arrange
+        val sut = CountingExercises()
+        val element1 = 123
+        val element2 = 231
+        val element3 = 132
+        val numbers = listOf(element1, element2, element3)
+        val selected = listOf(element2)
+
+        // Act
+        val result = sut.startsWithDistinctNumber(numbers, selected)
+
+        // Assert
+        assertTrue(result)
+    }
+
+    @Test
+    fun distinctDigitsList() {
+        // Arrange
+        val sut = CountingExercises()
+        val element1 = 122
+        val element2 = 233
+        val element3 = 132
+        val numbers = listOf(element1, element2, element3)
+        val selected = listOf(element3)
+        val expected = listOf(element3)
+
+        // Act
+        val result = sut.distinctDigitsList(numbers, selected)
+
+        // Assert
+        assertContentEquals(expected, selected)
     }
 }
