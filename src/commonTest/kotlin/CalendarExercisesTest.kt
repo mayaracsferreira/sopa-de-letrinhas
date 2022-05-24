@@ -1,4 +1,5 @@
 
+import kotlinx.datetime.*
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 
@@ -13,7 +14,16 @@ internal class CalendarExercisesTest{
     @Test
     fun isCurrentDay() {
         // Arrange
-        //val current = LocalDateTime.now()
+        //mockkStatic(Clock::class)
+        val now = Clock.System.now()
+        var dateNow = now.toLocalDateTime(TimeZone.currentSystemDefault()).date
+        val dayOfMonth = dateNow.dayOfMonth
+
+
+        while (dateNow.dayOfWeek != DayOfWeek.SUNDAY){
+            dateNow = dateNow.plus(-1, DateTimeUnit.DAY)
+        }
+       var b = dateNow
 
         // Act
         //sut.isCurrentDay(current)
