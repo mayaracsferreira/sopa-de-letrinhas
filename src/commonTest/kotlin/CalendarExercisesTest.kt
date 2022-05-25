@@ -1,7 +1,8 @@
 
-import kotlinx.datetime.*
 import kotlin.test.BeforeTest
 import kotlin.test.Test
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 internal class CalendarExercisesTest{
     private lateinit var sut: CalendarExercises
@@ -14,19 +15,7 @@ internal class CalendarExercisesTest{
     @Test
     fun isCurrentDay() {
         // Arrange
-        //mockkStatic(Clock::class)
-        val now = Clock.System.now()
-        var dateNow = now.toLocalDateTime(TimeZone.currentSystemDefault()).date
-        val dayOfMonth = dateNow.dayOfMonth
-
-
-        while (dateNow.dayOfWeek != DayOfWeek.SUNDAY){
-            dateNow = dateNow.plus(-1, DateTimeUnit.DAY)
-        }
-       var b = dateNow
-
         // Act
-        //sut.isCurrentDay(current)
         // Assert
     }
 
@@ -46,8 +35,19 @@ internal class CalendarExercisesTest{
 
     @Test
     fun isWeekDuration() {
-        // Arrange
         // Act
+        var result = sut.isWeekDuration(7)
+
         // Assert
+        assertTrue(result)
+    }
+
+    @Test
+    fun isNotWeekDuration() {
+        // Act
+        var result = sut.isWeekDuration(9)
+
+        // Assert
+        assertFalse(result)
     }
 }

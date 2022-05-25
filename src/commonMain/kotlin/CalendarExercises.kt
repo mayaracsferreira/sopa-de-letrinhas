@@ -14,22 +14,19 @@ class CalendarExercises : CalendarExercisesInterface {
     val WEEK_DURATION = 7
 
     override fun isCurrentDayOfMonth(day: Int): Boolean {
-        val now = Clock.System.now()
-        val dateNow = now.toLocalDateTime(TimeZone.currentSystemDefault()).date
-        return dateNow.dayOfMonth == day
+        var today = getToday()
+        return today.dayOfMonth == day
     }
 
     override fun isCurrentWeek(daysOfWeekList: List<Int>): Boolean {
-        val now = Clock.System.now()
-        val dateNow = now.toLocalDateTime(TimeZone.currentSystemDefault()).date
-
-        TODO("Not yet implemented")
+        var today = getToday()
+        var currentWeeDaysList = getDaysOftheWeek(today)
+        return daysOfWeekList.equals(currentWeeDaysList)
     }
 
     override fun isMonthDuration(daysOfMonthCount: Int): Boolean {
-        val now = Clock.System.now()
-        val dateNow = now.toLocalDateTime(TimeZone.currentSystemDefault()).date
-        val month = dateNow.month
+        var today = getToday()
+        val month = today.month
         //val a = dateNow.lengthOfMonth()
         TODO("Not yet implemented")
     }
@@ -38,27 +35,20 @@ class CalendarExercises : CalendarExercisesInterface {
         return daysOfWeekCount == WEEK_DURATION
     }
 
-    private fun isLeap(year: Int): Boolean {
-        if (year % 4 == 0) {
-            if (year % 100 == 0) {
-                if (year % 400 == 0) {
-                    return true
-                }
-                return false
-            }
-            return true
+    fun getDaysOftheWeek(today: LocalDate): MutableList<LocalDate> {
+        var i = 0
+        var sunday = getSUnday(today)
+        var daysList: MutableList<LocalDate> = mutableListOf()
+        while (i <= 8) {
+            daysList.add(sunday.plus(i, DateTimeUnit.DAY))
+            i++
         }
-        return false
-    }
-
-    fun getDaysOftheWeek() {
-        TODO("Not yet implemented\"d")
+        return daysList
     }
 
     fun getPreviousWeek(today: LocalDate): Pair<LocalDate, LocalDate> {
-        var sunday = getSUnday(today);
-        var sundayEarly = sunday.plus(-7, DateTimeUnit.DAY);
-
+        var sunday = getSUnday(today)
+        var sundayEarly = sunday.plus(-WEEK_DURATION, DateTimeUnit.DAY)
         return Pair(sundayEarly, sunday)
     }
 
@@ -68,5 +58,11 @@ class CalendarExercises : CalendarExercisesInterface {
             sunday = sunday.plus(-1, DateTimeUnit.DAY)
         }
         return sunday
+    }
+
+    // TODO stub
+    fun getToday(): LocalDate {
+        val now = Clock.System.now()
+        return now.toLocalDateTime(TimeZone.currentSystemDefault()).date
     }
 }
