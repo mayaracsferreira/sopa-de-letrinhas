@@ -112,13 +112,12 @@ internal class CountingExercisesTest {
         val element3 = 132
         val numbers = listOf(element1, element2, element3)
         val selected = listOf(element3)
-        val expected = listOf(element3)
 
         // Act
-        val result = sut.getDistinctDigitsList(numbers, selected)
+        val result = sut.isDistinctDigitsList(numbers, selected)
 
         // Assert
-        assertContentEquals(expected, selected)
+        assertTrue(result)
     }
 
     @Test

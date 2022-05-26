@@ -10,7 +10,7 @@ class CountingExercises : ICountingExercises {
         if (numericList.count { it == null } != missingValues.size) throw Exception("List of items to complete the list must match number of missing values")
 
         val missingValuesIterator = missingValues.iterator()
-        var mergedList: MutableList<Int> =
+        val mergedList: MutableList<Int> =
             numericList.map { element ->
                 if (element == null) {
                     return@map missingValuesIterator.next()
@@ -26,18 +26,19 @@ class CountingExercises : ICountingExercises {
     }
 
     override fun startsWithDistinctNumber(numericList: List<Int>, elementsSelected: List<Int>): Boolean {
-        var digitsList = numericList.map { element -> getFirstDigitOfInteger(element) }
-        var uniqueFirstDigits = getUniqueValues(digitsList)
-        var uniqueValues = numericList.filter { element ->
+        val digitsList = numericList.map { element -> getFirstDigitOfInteger(element) }
+        val uniqueFirstDigits = getUniqueValues(digitsList)
+        val uniqueValues = numericList.filter { element ->
             uniqueFirstDigits.contains(getFirstDigitOfInteger(element))
         }
-        return uniqueValues.equals(elementsSelected)
+        return uniqueValues == elementsSelected
     }
 
-    override fun getDistinctDigitsList(numericList: List<Int>, elementsSelected: List<Int>): List<Int> {
-        return numericList.filter { element ->
+    override fun isDistinctDigitsList(numericList: List<Int>, elementsSelected: List<Int>): Boolean {
+        val itemsDistinctDigtsList = numericList.filter { element ->
             hasNumberUniqueDigits(element)
         }
+        return elementsSelected == itemsDistinctDigtsList
     }
 
     override fun hasKeyMinMapValue(keyValues: Map<String, Int>, keySelected: String): Boolean {
@@ -61,7 +62,7 @@ class CountingExercises : ICountingExercises {
     }
 
     private fun hasNumberUniqueDigits(number: Int): Boolean {
-        val distinctDigits = number.toString().split("").toSet()
+        val distinctDigits = number.toString().split("").drop(1).dropLast(1).toSet()
         return distinctDigits.size == number.toString().count()
     }
 }
