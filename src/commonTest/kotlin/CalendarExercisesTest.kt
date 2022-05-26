@@ -1,3 +1,5 @@
+
+import kotlinx.datetime.LocalDate
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertFalse
@@ -17,6 +19,7 @@ internal class CalendarExercisesTest{
     fun isCurrentDayOfMonth() {
         // Act
         val result = sut.isCurrentDayOfMonth(22)
+
         // Assert
         assertTrue(result)
     }
@@ -24,22 +27,26 @@ internal class CalendarExercisesTest{
     @Test
     fun isCurrentWeek() {
         // Arrange
-        // Act
-        //sut.isCurrentWeek(22)
-        // Assert
-    }
+        val sunday = LocalDate(1900, 6, 3 )
+        val monday = LocalDate(1900, 6, 4)
+        val tuesday = LocalDate(1900, 6, 5)
+        val wednesday = LocalDate(1900, 6, 6)
+        val thursday = LocalDate(1900, 6, 7)
+        val friday = LocalDate(1900, 6, 8)
+        val saturday = LocalDate(1900, 6, 9)
+        val daysOfWeekList = listOf(sunday, monday, tuesday, wednesday, thursday, friday, saturday)
 
-    @Test
-    fun isMonthDuration() {
-        // Arrange
         // Act
+        val result = sut.isCurrentWeek(daysOfWeekList)
+
         // Assert
+        assertTrue(result)
     }
 
     @Test
     fun isWeekDuration() {
         // Act
-        var result = sut.isWeekDuration(7)
+        val result = sut.isWeekDuration(7)
 
         // Assert
         assertTrue(result)
@@ -48,7 +55,7 @@ internal class CalendarExercisesTest{
     @Test
     fun isNotWeekDuration() {
         // Act
-        var result = sut.isWeekDuration(9)
+        val result = sut.isWeekDuration(9)
 
         // Assert
         assertFalse(result)

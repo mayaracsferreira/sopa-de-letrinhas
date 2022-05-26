@@ -1,7 +1,7 @@
 import kotlinx.datetime.*
 
 class DateProvider : IDateProvider {
-    override fun getDaysOfTheWeek(today: LocalDate): MutableList<LocalDate> {
+    override fun getDaysOfTheWeek(today: LocalDate): List<LocalDate> {
         var i = 0
         val sunday = getLastSundayFrom(today)
         val daysList: MutableList<LocalDate> = mutableListOf()
@@ -10,12 +10,6 @@ class DateProvider : IDateProvider {
             i++
         }
         return daysList
-    }
-
-    override fun getPreviousWeek(today: LocalDate): Pair<LocalDate, LocalDate> {
-        val sunday = getLastSundayFrom(today)
-        val sundayEarly = sunday.plus(-WEEK_DURATION, DateTimeUnit.DAY)
-        return Pair(sundayEarly, sunday)
     }
 
     override fun getLastSundayFrom(date: LocalDate): LocalDate {
