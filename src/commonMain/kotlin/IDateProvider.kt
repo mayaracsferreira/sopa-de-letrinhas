@@ -7,4 +7,6 @@ interface IDateProvider {
     fun getLastSundayFrom(date: LocalDate): LocalDate
 
     fun getToday(): LocalDate
+
+    fun  getMonthDuration(currentDate: LocalDate): Int
 }

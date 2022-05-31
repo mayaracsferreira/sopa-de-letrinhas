@@ -5,7 +5,7 @@ class DateProvider : IDateProvider {
         var i = 0
         val sunday = getLastSundayFrom(today)
         val daysList: MutableList<LocalDate> = mutableListOf()
-        while (i <= 8) {
+        while (i <= WEEK_DURATION) {
             daysList.add(sunday.plus(i, DateTimeUnit.DAY))
             i++
         }
@@ -23,6 +23,18 @@ class DateProvider : IDateProvider {
     override fun getToday(): LocalDate {
         val now = Clock.System.now()
         return now.toLocalDateTime(TimeZone.currentSystemDefault()).date
+    }
+
+    override fun getMonthDuration(currentDate: LocalDate): Int {
+        val nextMonthFirstDay = getNextMonth(currentDate)
+        val firstDayMonth = LocalDate(currentDate.year, currentDate.monthNumber, 1 )
+        return firstDayMonth.daysUntil(nextMonthFirstDay)
+    }
+
+    fun getNextMonth(currentDate: LocalDate): LocalDate {
+        if (currentDate.monthNumber == Month.DECEMBER.number)
+            return LocalDate(currentDate.year +1, 1, 1 )
+        return LocalDate(currentDate.year, currentDate.monthNumber + 1, 1 )
     }
 
     companion object{
