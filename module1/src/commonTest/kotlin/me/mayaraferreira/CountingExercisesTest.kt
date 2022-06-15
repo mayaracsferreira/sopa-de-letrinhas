@@ -1,3 +1,5 @@
+package me.mayaraferreira
+
 import kotlin.test.*
 
 internal class CountingExercisesTest {
