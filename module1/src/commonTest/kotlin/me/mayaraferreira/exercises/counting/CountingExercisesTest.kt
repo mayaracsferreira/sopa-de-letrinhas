@@ -1,5 +1,6 @@
-package me.mayaraferreira
+package me.mayaraferreira.exercises.counting
 
+import me.mayaraferreira.moduleOne.exercises.counting.CountingExercises
 import kotlin.test.*
 
 internal class CountingExercisesTest {

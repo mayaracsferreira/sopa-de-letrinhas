@@ -1,4 +1,4 @@
-package me.mayaraferreira
+package me.mayaraferreira.moduleOne.exercises.counting
 
 interface ICountingExercises {
     fun isElementSelectedUserAge(numericSet: Set<Int>, ageSelected: Int, userAge: Int): Boolean

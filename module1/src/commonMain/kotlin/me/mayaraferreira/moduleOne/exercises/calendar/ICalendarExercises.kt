@@ -1,4 +1,4 @@
-package me.mayaraferreira
+package me.mayaraferreira.moduleOne.exercises.calendar
 import kotlinx.datetime.LocalDate
 
 interface ICalendarExercises {

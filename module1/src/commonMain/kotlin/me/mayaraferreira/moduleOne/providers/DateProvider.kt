@@ -1,8 +1,8 @@
-package me.mayaraferreira
+package me.mayaraferreira.moduleOne.providers
 
 import kotlinx.datetime.*
 
-class DateProvider : IDateProvider {
+internal class DateProvider : IDateProvider {
     override fun getDaysOfTheWeek(today: LocalDate): List<LocalDate> {
         var i = 0
         val sunday = getLastSundayFrom(today)

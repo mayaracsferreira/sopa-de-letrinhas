@@ -1,8 +1,10 @@
-package me.mayaraferreira
+package me.mayaraferreira.moduleOne.exercises.calendar
 
 import kotlinx.datetime.LocalDate
+import me.mayaraferreira.moduleOne.providers.DateProvider
+import me.mayaraferreira.moduleOne.providers.IDateProvider
 
-class CalendarExercises(private val dateProvider: IDateProvider) : ICalendarExercises {
+internal class CalendarExercises(val dateProvider: IDateProvider) : ICalendarExercises {
     override fun isCurrentDayOfMonth(day: Int): Boolean {
         val today = dateProvider.getToday()
         return today.dayOfMonth == day

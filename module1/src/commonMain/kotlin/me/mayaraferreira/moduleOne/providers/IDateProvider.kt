@@ -1,8 +1,8 @@
-package me.mayaraferreira
+package me.mayaraferreira.moduleOne.providers
 
 import kotlinx.datetime.LocalDate
 
-interface IDateProvider {
+internal interface IDateProvider {
 
     fun getDaysOfTheWeek(today: LocalDate): List<LocalDate>
 

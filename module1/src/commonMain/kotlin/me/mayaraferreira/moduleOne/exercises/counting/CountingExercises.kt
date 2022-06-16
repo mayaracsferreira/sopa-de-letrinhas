@@ -1,6 +1,6 @@
-package me.mayaraferreira
+package me.mayaraferreira.moduleOne.exercises.counting
 
-class CountingExercises : ICountingExercises {
+internal class CountingExercises : ICountingExercises {
 
     override fun isElementSelectedUserAge(numericSet: Set<Int>, ageSelected: Int, userAge: Int): Boolean {
         if (!numericSet.contains(userAge)) throw IllegalArgumentException("Collection must contain user age")

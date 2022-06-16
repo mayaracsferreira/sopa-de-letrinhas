@@ -1,6 +1,9 @@
-package me.mayaraferreira
+package me.mayaraferreira.exercises.calendar
 
 import kotlinx.datetime.LocalDate
+import me.mayaraferreira.moduleOne.exercises.calendar.CalendarExercises
+import me.mayaraferreira.moduleOne.providers.IDateProvider
+import me.mayaraferreira.providers.DateProviderStub
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertFalse
