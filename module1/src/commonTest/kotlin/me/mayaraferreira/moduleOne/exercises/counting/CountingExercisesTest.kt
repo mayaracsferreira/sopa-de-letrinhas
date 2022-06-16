@@ -1,4 +1,4 @@
-package me.mayaraferreira.exercises.counting
+package me.mayaraferreira.moduleOne.exercises.counting
 
 import me.mayaraferreira.moduleOne.exercises.counting.CountingExercises
 import kotlin.test.*

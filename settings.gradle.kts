@@ -4,4 +4,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "sopadeletrinhas"
-include("module1")
+include("module1", "module2")

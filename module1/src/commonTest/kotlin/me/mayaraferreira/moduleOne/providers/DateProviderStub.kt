@@ -1,8 +1,7 @@
-package me.mayaraferreira.providers
+package me.mayaraferreira.moduleOne.providers
 
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.Month
-import me.mayaraferreira.moduleOne.providers.IDateProvider
 
 class DateProviderStub : IDateProvider {
     private val todayDate = LocalDate(2022, 5, 22)

@@ -3,7 +3,7 @@ plugins {
     id("com.android.library")
 }
 
-group = "me.mayaraferreira.sopadeletrinhas.module1"
+group = "me.mayaraferreira.sopadeletrinhas.module2"
 version = "1.0.0"
 
 repositories {
@@ -44,6 +44,9 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+                implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.21")
+                implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21")
+
             }
         }
         val jvmMain by getting
