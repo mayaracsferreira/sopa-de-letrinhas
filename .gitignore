@@ -11,3 +11,7 @@ gradlew.bat
 
 # IDE
 .idea/
+/kotlin-js-store/
+*/*.DS_Store
+*.DS_Store
+*/.DS_Store

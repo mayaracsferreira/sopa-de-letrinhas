@@ -1,14 +1,12 @@
 plugins {
-    kotlin("multiplatform") version "1.6.21"
-    id("com.android.application")
-    id("kotlin-android-extensions")
+    kotlin("multiplatform")
+    id("com.android.library")
 }
 
-group = "me.mayaraferreira"
-version = "1.0-SNAPSHOT"
+group = "me.mayaraferreira.sopadeletrinhas.module2"
+version = "1.0.0"
 
 repositories {
-    gradlePluginPortal()
     google()
     mavenCentral()
 }
@@ -38,21 +36,24 @@ kotlin {
         }
     }
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.2")
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+                implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.21")
+                implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21")
+
             }
         }
         val jvmMain by getting
         val jvmTest by getting
         val jsMain by getting
         val jsTest by getting
-        val androidMain by getting {
-            dependencies {
-                implementation("com.google.android.material:material:1.2.1")
-            }
-        }
+        val androidMain by getting
         val androidTest by getting {
             dependencies {
                 implementation("junit:junit:4.13")
@@ -64,12 +65,11 @@ kotlin {
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdk=31
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        applicationId = "me.mayaraferreira.library"
-        minSdkVersion(24)
-        targetSdkVersion(29)
+        minSdk=24
+        targetSdk=29
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

@@ -1,17 +1,7 @@
-pluginManagement {
+dependencyResolutionManagement {
     repositories {
-        google()
-        jcenter()
-        gradlePluginPortal()
         mavenCentral()
     }
-    resolutionStrategy {
-        eachPlugin {
-            if (requested.id.namespace == "com.android" || requested.id.name == "kotlin-android-extensions") {
-                useModule("com.android.tools.build:gradle:4.1.2")
-            }
-        }
-    }
 }
-rootProject.name = "SopaDeLetrinhas"
-
+rootProject.name = "sopadeletrinhas"
+include("module1", "module2")
