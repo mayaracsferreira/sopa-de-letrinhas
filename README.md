@@ -1,6 +1,6 @@
 # Sopa de Letrinhas
 
-## Biblioteca multiplataforma para aplicação ecucacional
+## Biblioteca multiplataforma para aplicação educacional
 
 Trabalho de gradução desenvolvido para a Faculdade de Tecnolgoia do Estado de São Paulo Professor Jessen Vidal.
 
