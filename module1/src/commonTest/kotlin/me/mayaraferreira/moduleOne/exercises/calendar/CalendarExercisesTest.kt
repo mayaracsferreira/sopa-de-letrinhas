@@ -1,7 +1,5 @@
 package me.mayaraferreira.moduleOne.exercises.calendar
 
-import kotlinx.datetime.LocalDate
-import me.mayaraferreira.moduleOne.exercises.calendar.CalendarExercises
 import me.mayaraferreira.moduleOne.providers.IDateProvider
 import me.mayaraferreira.moduleOne.providers.DateProviderStub
 import kotlin.test.BeforeTest
@@ -31,13 +29,13 @@ internal class CalendarExercisesTest{
     @Test
     fun isCurrentWeek() {
         // Arrange
-        val sunday = LocalDate(1900, 6, 3 )
-        val monday = LocalDate(1900, 6, 4)
-        val tuesday = LocalDate(1900, 6, 5)
-        val wednesday = LocalDate(1900, 6, 6)
-        val thursday = LocalDate(1900, 6, 7)
-        val friday = LocalDate(1900, 6, 8)
-        val saturday = LocalDate(1900, 6, 9)
+        val sunday = 3
+        val monday = 4
+        val tuesday = 5
+        val wednesday = 6
+        val thursday = 7
+        val friday = 8
+        val saturday = 9
         val daysOfWeekList = listOf(sunday, monday, tuesday, wednesday, thursday, friday, saturday)
 
         // Act

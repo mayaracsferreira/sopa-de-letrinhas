@@ -4,7 +4,7 @@ import kotlinx.datetime.LocalDate
 
 internal interface IDateProvider {
 
-    fun getDaysOfTheWeek(today: LocalDate): List<LocalDate>
+    fun getDaysOfTheWeek(today: LocalDate): List<Int>
 
     fun getLastSundayFrom(date: LocalDate): LocalDate
 

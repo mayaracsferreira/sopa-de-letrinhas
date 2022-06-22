@@ -1,6 +1,5 @@
 package me.mayaraferreira.moduleOne.exercises.calendar
 
-import kotlinx.datetime.LocalDate
 import me.mayaraferreira.moduleOne.providers.DateProvider
 import me.mayaraferreira.moduleOne.providers.IDateProvider
 
@@ -10,7 +9,7 @@ internal class CalendarExercises(val dateProvider: IDateProvider) : ICalendarExe
         return today.dayOfMonth == day
     }
 
-    override fun isCurrentWeek(daysOfWeekList: List<LocalDate>): Boolean {
+    override fun isCurrentWeek(daysOfWeekList: List<Int>): Boolean {
         val today = dateProvider.getToday()
         val currentWeeDaysList = dateProvider.getDaysOfTheWeek(today)
         return daysOfWeekList == currentWeeDaysList
