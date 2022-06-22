@@ -3,12 +3,12 @@ package me.mayaraferreira.moduleOne.providers
 import kotlinx.datetime.*
 
 internal class DateProvider : IDateProvider {
-    override fun getDaysOfTheWeek(today: LocalDate): List<LocalDate> {
+    override fun getDaysOfTheWeek(today: LocalDate): List<Int> {
         var i = 0
         val sunday = getLastSundayFrom(today)
-        val daysList: MutableList<LocalDate> = mutableListOf()
-        while (i <= WEEK_DURATION) {
-            daysList.add(sunday.plus(i, DateTimeUnit.DAY))
+        val daysList: MutableList<Int> = mutableListOf()
+        while (i < WEEK_DURATION) {
+            daysList.add(sunday.plus(i, DateTimeUnit.DAY).dayOfMonth)
             i++
         }
         return daysList
