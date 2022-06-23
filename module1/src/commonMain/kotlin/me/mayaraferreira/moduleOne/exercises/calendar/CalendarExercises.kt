@@ -3,7 +3,7 @@ package me.mayaraferreira.moduleOne.exercises.calendar
 import me.mayaraferreira.moduleOne.providers.DateProvider
 import me.mayaraferreira.moduleOne.providers.IDateProvider
 
-internal class CalendarExercises(val dateProvider: IDateProvider) : ICalendarExercises {
+internal class CalendarExercises(private val dateProvider: IDateProvider) : ICalendarExercises {
     override fun isCurrentDayOfMonth(day: Int): Boolean {
         val today = dateProvider.getToday()
         return today.dayOfMonth == day

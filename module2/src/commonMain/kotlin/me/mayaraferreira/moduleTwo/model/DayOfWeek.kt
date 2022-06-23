@@ -1,13 +1,13 @@
 package me.mayaraferreira.moduleTwo.model
 
 internal enum class DayOfWeek(val ptBrName: String) {
-    MONDAY("segunda-feira"),
-    TUESDAY("terça-feira"),
-    WEDNESDAY("quarta-feira"),
-    THURSDAY("quinta-feira"),
-    FRIDAY("sexta-feira"),
-    SATURDAY("sabado"),
-    SUNDAY("domingo");
+    MONDAY("SEGUNDA-FEIRA"),
+    TUESDAY("TERÇA-FEIRA"),
+    WEDNESDAY("QUARTA-FEIRA"),
+    THURSDAY("QUINTA-FEIRA"),
+    FRIDAY("SEXTA-FEIRA"),
+    SATURDAY("SABADO"),
+    SUNDAY("DOMINGO");
 
     override fun toString(): String {
         return ptBrName
