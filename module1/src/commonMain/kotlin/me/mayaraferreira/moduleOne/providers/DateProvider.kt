@@ -24,7 +24,7 @@ internal class DateProvider : IDateProvider {
 
     override fun getToday(): LocalDate {
         val now = Clock.System.now()
-        return now.toLocalDateTime(TimeZone.currentSystemDefault()).date
+        return now.toLocalDateTime(TimeZone.UTC).date
     }
 
     override fun getMonthDuration(currentDate: LocalDate): Int {
