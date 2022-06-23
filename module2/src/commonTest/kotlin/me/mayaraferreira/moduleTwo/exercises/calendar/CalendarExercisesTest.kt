@@ -20,7 +20,7 @@ internal class CalendarExercisesTest{
     }
 
     @Test
-    fun IsCurrentMonth(){
+    fun isCurrentMonth(){
         // Arrange
         val montName = "Maio"
 
@@ -56,7 +56,7 @@ internal class CalendarExercisesTest{
     }
 
     @Test
-    fun IsMonthDuration(){
+    fun isMonthDuration(){
         // Arrange
         val month = 1
         val numberOfDays = 31
@@ -69,7 +69,7 @@ internal class CalendarExercisesTest{
     }
 
     @Test
-    fun IsMonthNameAndNumber(){
+    fun isMonthNameAndNumber(){
         // Arrange
         val montName = "Janeiro"
         val monthNumber = 1

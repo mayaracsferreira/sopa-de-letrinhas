@@ -32,7 +32,8 @@ internal class CalendarExercises(private val dateProvider: IDateProvider) : ICal
 
     override fun isDaysOfWeekNames(daysOfWeek: List<String>): Boolean {
         val dayOfWeekNames = dateProvider.getWeekDaysNamePtBr()
-        return daysOfWeek == dayOfWeekNames
+        val daysOfWeekUppercase = daysOfWeek.map { it.uppercase() }
+        return daysOfWeekUppercase == dayOfWeekNames
     }
 
     override fun isDayOfTheWeekFromDate(dayOfWeek: Int, date: LocalDate): Boolean {
