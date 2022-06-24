@@ -7,11 +7,15 @@ internal class CountingExercises : ICountingExercises {
         return ageSelected == userAge
     }
 
-    override fun completeTheList(numericList: MutableList<Int?>, missingValues: List<Int>): MutableList<Int> {
+    override fun completeTheList(
+        expectedList: List<Int>,
+        numericList: MutableList<Int?>,
+        actualMissingValues: List<Int>
+    ): Boolean {
         // TODO find better exception type
-        if (numericList.count { it == null } != missingValues.size) throw Exception("List of items to complete the list must match number of missing values")
+        if (numericList.count { it == null } != actualMissingValues.size) throw NullPointerException("List of items to complete the list must match number of missing values")
 
-        val missingValuesIterator = missingValues.iterator()
+        val missingValuesIterator = actualMissingValues.iterator()
         val mergedList: MutableList<Int> =
             numericList.map { element ->
                 if (element == null) {
@@ -19,7 +23,7 @@ internal class CountingExercises : ICountingExercises {
                 }
                 element
             } as MutableList<Int>
-        return mergedList
+        return expectedList == mergedList
     }
 
     override fun isMaxListElement(numericList: List<Int>, elementSelected: Int): Boolean {

@@ -3,7 +3,11 @@ package me.mayaraferreira.moduleOne.exercises.counting
 interface ICountingExercises {
     fun isElementSelectedUserAge(numericSet: Set<Int>, ageSelected: Int, userAge: Int): Boolean
 
-    fun completeTheList(numericList: MutableList<Int?>, missingValues: List<Int>): MutableList<Int>
+    fun completeTheList(
+        expectedList: List<Int>,
+        numericList: MutableList<Int?>,
+        actualMissingValues: List<Int>
+    ): Boolean
 
     fun isMaxListElement(numericList: List<Int>, elementSelected: Int): Boolean
 

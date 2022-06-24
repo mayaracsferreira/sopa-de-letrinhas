@@ -1,7 +1,10 @@
 package me.mayaraferreira.moduleOne.exercises.counting
 
-import me.mayaraferreira.moduleOne.exercises.counting.CountingExercises
-import kotlin.test.*
+import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertFailsWith
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 internal class CountingExercisesTest {
     private lateinit var sut: CountingExercises
@@ -57,13 +60,13 @@ internal class CountingExercisesTest {
         // Arrange
         val numbers = listOf(1, 2, null, 4, 5, null, null, 8, 9, 10).toMutableList()
         val missingNumbers = listOf(3, 6, 7)
-        val expected = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).toMutableList()
+        val expected = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
         // Act
-        val result = sut.completeTheList(numbers, missingNumbers)
+        val result = sut.completeTheList(expected, numbers, missingNumbers)
 
         // Assert
-        assertContentEquals(expected, result)
+        assertTrue(result)
     }
 
     @Test
@@ -74,7 +77,7 @@ internal class CountingExercisesTest {
 
         // Assert
         assertFailsWith<Exception> {
-            sut.completeTheList(numbers, missingNumbers)
+            sut.completeTheList(listOf(), numbers, missingNumbers)
         }
     }
 
