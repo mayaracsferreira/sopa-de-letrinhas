@@ -40,7 +40,7 @@ internal class CountingExercises : ICountingExercises {
         return uniqueValues == elementsSelected
     }
 
-    override fun isDistinctDigitsList(element: Int): Boolean {
+    override fun hasDistinctDigits(element: Int): Boolean {
         val distinctDigits = element.toString().split("").drop(1).dropLast(1).toSet()
         return distinctDigits.size == element.toString().count()
     }

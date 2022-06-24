@@ -116,7 +116,7 @@ internal class CountingExercisesTest {
         val element = 321
 
         // Act
-        val result = sut.isDistinctDigitsList(element)
+        val result = sut.hasDistinctDigits(element)
 
         // Assert
         assertTrue(result)
@@ -128,7 +128,7 @@ internal class CountingExercisesTest {
         val element = 122
 
         // Act
-        val result = sut.isDistinctDigitsList(element)
+        val result = sut.hasDistinctDigits(element)
 
         // Assert
         assertFalse(result)
