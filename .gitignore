@@ -9,9 +9,8 @@ gradlew.bat
 # Package Files
 *.hprof
 
-# IDE
+# IDE and folders
 .idea/
 /kotlin-js-store/
-*/*.DS_Store
-*.DS_Store
-*/.DS_Store
+**/.DS_Store
+local.properties
