@@ -13,7 +13,7 @@ interface ICountingExercises {
 
     fun startsWithDistinctNumber(numericList: List<Int>, elementsSelected: List<Int>): Boolean
 
-    fun isDistinctDigitsList(numericList: List<Int>, elementsSelected: List<Int>): Boolean
+    fun hasDistinctDigits(element: Int): Boolean
 
     fun hasKeyMinMapValue(keyValues: Map<String, Int>, keySelected: String): Boolean
 

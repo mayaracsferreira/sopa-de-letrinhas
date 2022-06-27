@@ -113,17 +113,25 @@ internal class CountingExercisesTest {
     @Test
     fun distinctDigitsList() {
         // Arrange
-        val element1 = 122
-        val element2 = 233
-        val element3 = 132
-        val numbers = listOf(element1, element2, element3)
-        val selected = listOf(element3)
+        val element = 321
 
         // Act
-        val result = sut.isDistinctDigitsList(numbers, selected)
+        val result = sut.hasDistinctDigits(element)
 
         // Assert
         assertTrue(result)
+    }
+
+    @Test
+    fun distinctDigitsListFalse() {
+        // Arrange
+        val element = 122
+
+        // Act
+        val result = sut.hasDistinctDigits(element)
+
+        // Assert
+        assertFalse(result)
     }
 
     @Test
